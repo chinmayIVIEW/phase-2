@@ -1,19 +1,44 @@
-const { Create,Read,Update,Delete } = require("./services")
+const { SignedUp,AccVerify,Read,Update,Delete,Signedin,ForgotPassWord } = require("./services")
 
 
-const CreateUser = (req,res)=>{
-    const data = req.body 
-    Create(data,(err,result)=>{
-        if (err){
+
+const Signup = (req,res)=>{
+    const data = req.body
+    SignedUp(data,(err,result)=>{
+        if (result == undefined){               
+            return res.json({
+                message : "User with this email already exists"
+            })
+        }
+        else if(err){
             return res.status(500).json({
                 success : 0,
                 message : "database connection error"
             })
+        }else{
+            return res.json({
+                message : result
+            })
         }
-        return res.status(200).json({
-            success : 1,
-            data : result,
-        })
+    })
+}
+
+const activateAccount = (req,res)=>{
+    const token_data = req.body
+    AccVerify(token_data,(err,result)=>{
+        if (result == undefined){               
+            return res.json({
+                message : "User with this email already exists"
+            })
+        }else if (err){
+            return res.json({
+                message : "Error in signup while account activation"
+            })
+        }else{
+            return res.json({
+                message:"Sign up Success"
+            })
+        }
     })
 }
 
@@ -66,5 +91,38 @@ const DeleteUser = (req,res)=>{
     })
 }
 
+const Signin = (req,res)=>{
+    let data = req.body
+    Signedin(data,(err,result)=>{
+        if(err){
+            return res.status(500).json({
+            message : "Server Error"
+            })       
+        }else if(result.length == 0){
+            return res.json({
+                message : "Record Not Found Please Sign Up !!!"
+            })
+        }else{
+            return res.json({
+            message : "You are signed in"
+            })
+        }
+    })
 
-module.exports = { CreateUser,ReadUser,UpdateUser,DeleteUser }
+}
+
+const forgotPassword = (req,res)=>{
+    let data = req.body
+    ForgotPassWord(data,(err,result)=>{
+        if(err){
+            return res.status(500).json({
+            message : "Ops error occured"
+            })  
+        }else{
+            return res.json({
+            message : result
+            })
+        }
+    })
+}
+module.exports = { Signup,activateAccount,ReadUser,UpdateUser,DeleteUser,Signin,forgotPassword }
