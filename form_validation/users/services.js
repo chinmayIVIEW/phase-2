@@ -1,8 +1,9 @@
 const pool = require("../db/connection")
 const {DOMAIN,api_key,token,client_url,forgot_pass_token} = require("./auth")
 const jwt = require("jsonwebtoken")
+require("dotenv").config()
 const mailgun = require("mailgun-js");
-const mg = mailgun({apiKey: api_key, domain: DOMAIN});
+const mg = mailgun({apiKey: api_key, domain: process.env.DOMAIN});
 
 
 
