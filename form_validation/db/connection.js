@@ -1,4 +1,5 @@
 const mysql = require("mysql")
+require("dotenv").config()
 
 const pool = mysql.createPool({
     host:'localhost',
@@ -7,13 +8,5 @@ const pool = mysql.createPool({
     database:'node_mysql',
     connectionLimit:15
 })
-
-const db = mysql.createConnection({
-    host : "localhost"
-})
-
-
-
-
 
 module.exports = pool

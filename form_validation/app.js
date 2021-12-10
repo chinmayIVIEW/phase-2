@@ -10,13 +10,6 @@ app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json())
 
 
-// const view_path = path.join(__dirname,"./views")
-
-
-// app.set("views",view_path)
-// app.set("view engine","hbs")
-
-
 app.use('/api',router)
 
 
