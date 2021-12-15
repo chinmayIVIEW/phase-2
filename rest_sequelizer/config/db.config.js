@@ -2,7 +2,7 @@
 module.exports = {
     HOST:'localhost',
     USER : 'root',
-    PASSWORD : 'Chinmay567..',
-    DB : 'sequalizer_db',
+    PASSWORD : '****',
+    DB : '*******',
     dialect : 'mysql'
 }
