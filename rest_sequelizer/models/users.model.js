@@ -8,7 +8,7 @@ module.exports = (sequelize,DataTypes) =>{
                 type:DataTypes.STRING
             },
             gender:{
-                type:DataTypes.STRING
+                type:DataTypes.STRING 
             }
         },{
             // timestamps : false

@@ -1,0 +1,19 @@
+{
+  "name": "project_pexit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"nodemon engine.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "hbs": "^4.2.0",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.12.0"
+  }
+}
