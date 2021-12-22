@@ -4,10 +4,10 @@ const {Createuser,Readuser,Signup,Signin} = require("../controller/profile.contr
 
 
 
-router.get('/create',Createuser)
-router.get('/profiles',Readuser)
-router.get('/signup',Signup)
-router.get('/signin',Signin)
+router.get('/profile/edit-profile',Createuser)
+router.get('/profile',Readuser)
+router.post('/signup',Signup)
+router.post('/signin',Signin)
 
 
 

@@ -15,10 +15,12 @@ module.exports = (sequelize,DataTypes)=>{
             allowNull : false
         },
         profession : {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            defaultValue: null
         },
         professional_role : {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            defaultValue: null
         },
         email_id :{
             type: DataTypes.STRING,
@@ -26,33 +28,41 @@ module.exports = (sequelize,DataTypes)=>{
             allowNull:false
         },
         phone : {
-            type: DataTypes.INTEGER,
-            allowNull : false
+            type: DataTypes.STRING,
+            allowNull : false,
+            unique : true
         },
         date_of_birth : {
-            type: DataTypes.DATE
+            type: DataTypes.DATE,
+            defaultValue: null
         },
         gender : {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            defaultValue: null
         },
         address : {
-            type: DataTypes.STRING(1234)
+            type: DataTypes.STRING(1234),
+            defaultValue: null
         },
         country : {
             type: DataTypes.STRING,
-            allowNull : false
+            allowNull : null
         },
         state : {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            defaultValue: null
         },
         location:{
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            defaultValue: null
         },
         postal_location:{
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            defaultValue: null
         },
         summery : {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            defaultValue: null
         },
         password : {
             type: DataTypes.STRING,

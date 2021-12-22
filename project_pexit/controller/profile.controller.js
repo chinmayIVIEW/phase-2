@@ -22,14 +22,38 @@ const Readuser = ()=>{
     console.log("i am readuser");
 }
 
-const Signup = async()=>{
-    let data = await 
-    console.log("i am from Signup");
+const Signup = async(req,res)=>{
+    let data = await Profile.create({display_name:req.body.display_name,user_name:req.body.user_name,
+        password:req.body.password,email_id:req.body.email_id,phone:req.body.phone,country:req.body.country,profession:req.body.profession})
+    if (data) {
+        res.json({
+            message: "Sign up success !!!"
+        })
+    }else{
+        res.json({
+            message: "Oops !! Something went wrong"
+        })
+    }
 }
 
-const Signin = ()=>{
-    console.log("i am from Signin");
+const Signin = async(req,res)=>{
+    let data = await Profile.findOne({
+        where:{
+            user_name:req.body.user_name,
+            password:req.body.password
+        }
+    })
+    if (data) {
+        res.json({
+            message: "Sign in success !!!"
+        })
+    }else{
+        res.json({
+            message: "Please check the credentials and try again"
+        })
+    }
 }
+
 
 
 module.exports = { Readuser,Signup,Signin,Createuser }
