@@ -4,7 +4,7 @@ const {Sequelize,DataTypes} = require("sequelize")
 const sequelize = new Sequelize(db_confg.DB,db_confg.USER,db_confg.PASSWORD,{
     host:db_confg.HOST,
     dialect:db_confg.dialect,
-    logging:true
+    logging:false
 })
 
 
@@ -38,6 +38,41 @@ db.posts.hasMany(db.like_comments,{
 
 db.my_circle = require('./my-circle.model')(sequelize,DataTypes)
 db.profile.hasMany(db.my_circle,{
+    foreignKey:'profile_id'
+})
+
+db.group = require('./groups.model')(sequelize,DataTypes)
+db.profile.hasMany(db.group,{
+    foreignKey:'profile_id'
+})
+
+db.software = require('./software.model')(sequelize,DataTypes)
+db.profile.hasMany(db.software,{
+    foreignKey:'profile_id'
+})
+
+db.products = require('./products.model')(sequelize,DataTypes)
+db.profile.hasMany(db.products,{
+    foreignKey:'profile_id'
+})
+
+db.services = require('./services.model')(sequelize,DataTypes)
+db.profile.hasMany(db.services,{
+    foreignKey:'profile_id'
+})
+
+db.jobs = require('./jobs.model')(sequelize,DataTypes)
+db.profile.hasMany(db.jobs,{
+    foreignKey:'profile_id'
+})
+
+db.sponsored_content = require('./sponsored-content.model')(sequelize,DataTypes)
+db.profile.hasMany(db.sponsored_content,{
+    foreignKey:'profile_id'
+})
+
+db.ad_post = require('./ad-post.model')(sequelize,DataTypes)
+db.profile.hasMany(db.ad_post,{
     foreignKey:'profile_id'
 })
 

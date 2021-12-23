@@ -14,7 +14,9 @@ const Createuser = async (req,res)=>{
             message:"data inserted successfully"
         })
     }else{
-        res.json({message:"Something went wrong !!!"})
+        res.json({
+            message:"Something went wrong !!!"
+        })
     }
 }
 
@@ -54,6 +56,17 @@ const Signin = async(req,res)=>{
     }
 }
 
+const delete_user = async(req,res)=>{
+    let data = await Profile.destroy({
+        where : {
+            profile_id : req.params.id
+        }
+    })
+    if(data){
+        res.json({
+            message:"User deleted !!!"
+        })
+    }
+}
 
-
-module.exports = { Readuser,Signup,Signin,Createuser }
+module.exports = { Signup,Signin,delete_user }

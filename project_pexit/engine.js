@@ -6,14 +6,12 @@ const router = require('./router/router')
 const db = require('./models/index.model')
   
 
-app.use(express.urlencoded({extended:false}))
+app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 
 
 
 app.use('/pexit',router)
-
-
 
 
 db.sequelize.sync({force:false})
@@ -23,9 +21,6 @@ db.sequelize.sync({force:false})
 .catch(err=>{
     console.log(err);
 })
-
-
-
 
 
 app.listen(port,()=>{

@@ -1,5 +1,5 @@
 module.exports = (sequelize,DataTypes)=>{
-    const like_comments = sequelize.define("like%comments",{
+    const like_comments = sequelize.define("like&comments",{
         likes : {
             type : DataTypes.INTEGER,
             defaultValue : null
