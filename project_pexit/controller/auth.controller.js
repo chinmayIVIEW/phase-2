@@ -20,9 +20,6 @@ const Createuser = async (req,res)=>{
     }
 }
 
-const Readuser = ()=>{
-    console.log("i am readuser");
-}
 
 const Signup = async(req,res)=>{
     let data = await Profile.create({display_name:req.body.display_name,user_name:req.body.user_name,

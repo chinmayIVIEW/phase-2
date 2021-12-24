@@ -68,6 +68,10 @@ module.exports = (sequelize,DataTypes)=>{
             type: DataTypes.STRING,
             allowNull : false,
             unique: true
+        },
+        session_id : {
+            type: DataTypes.STRING,
+            defaultValue: null
         }
     },{
         updatedAt:false
