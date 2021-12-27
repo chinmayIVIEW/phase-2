@@ -76,6 +76,13 @@ app.get('/protect',checkAuthentication,(req,res)=>{
     res.render('protected')
 })
 
+
+app.get('/signup',(req,res)=>{
+    res.render('sign_up')
+})
+
+
+
 app.get('/logout',(req,res)=>{
     res.clearCookie('session-token')
     res.redirect('/login')
