@@ -9,6 +9,7 @@ const sequelize = new Sequelize(dbconfig.DB,dbconfig.USER,dbconfig.PASSWORD,{
 })
 
 
+
 const db = {}
 db.Sequelize = Sequelize
 db.sequelize = sequelize
