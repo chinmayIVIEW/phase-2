@@ -66,4 +66,17 @@ const delete_user = async(req,res)=>{
     }
 }
 
-module.exports = { Signup,Signin,delete_user }
+// social auth controller
+
+const google_signin = (req,res)=>{
+    let token = req.body.token
+    res.cookie('session-token',token)
+    res.send("success")
+}
+
+const google_logout = (req,res)=>{
+    res.clearCookie('session-token')
+    res.redirect('/social/signin')
+}
+
+module.exports = { Signup,Signin,delete_user,google_signin,google_logout }
